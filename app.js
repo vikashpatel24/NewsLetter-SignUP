@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
+require('dotenv').config();
+// console.log(process.env.API_KEY);
 
 const app = express();
 
@@ -33,7 +35,7 @@ app.post("/", function (req, res) {
 
     const jsonData = JSON.stringify(data);
 
-    const apiKey = "264a232a289a1318f4707850beb88d7e-us12";
+    const apiKey = process.env.API_KEY;
     const listId = "bfbd0d81c6";
 
     const url = `https://us12.api.mailchimp.com/3.0/lists/${listId}`;
